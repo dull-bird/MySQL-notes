@@ -20,9 +20,9 @@ ORDER BY some_col_name; # 可以与选择列不同，也可以是多列
 ORDER BY some_col_name DESC; # 逆序排列，DESC关键字只应用到直接位于其前面的列名
 ```
 一个例子，用来寻找最高价格：
-<img src="select_example.png" alt="aa" width="200"/>
+<img src="./img/select_example.png" alt="aa" width="200"/>
 
-<!-- <p><img src="select_example.png" alt="description" width="100" height="48" /></p> -->
+<!-- <p><img src="./img/select_example.png" alt="description" width="100" height="48" /></p> -->
 
 ## 过滤
 ```sql
@@ -32,7 +32,7 @@ WHERE condition
 ```
 在同时使用ORDER BY和WHERE子句时，应该让ORDER BY位于WHERE之后。
 WHERE条件：
-<img src="sql条件操作符.png" alt="" width="400">
+<img src="./img/sql条件操作符.png" alt="" width="400">
 注意：NULL不能被等于或不等于条件选出。
 
 ## 复杂的过滤条件
@@ -68,17 +68,17 @@ MySQL只支持少部分的正则表达式。
 - `[]`: 匹配几个字符之一。`[123]`是`[1|2|3]`的缩写。`[]`只能匹配单个字符，不能匹配字符串。可以使用`-`匹配范围,如`[123456789]`简写成`[1-9]`。
 
 正则表达式默认只需要匹配列值的**一部分**，而LIKE需要匹配整个列值。
-<img src="LIKE与REGEP的区别.png" alt="" width="200"/>
+<img src="./img/LIKE与REGEP的区别.png" alt="" width="200"/>
 正则表达式默认不区分大小写，如要区分，需要在search_pattern前加上BINARY。
 
 转义使用`\\`。
-<img src="空白元字符.png" alt="" width="400"/>
+<img src="./img/空白元字符.png" alt="" width="400"/>
 
 可以自定义字符类方便查找：
-<img src="预定义字符类.png" alt="" width="400"/>
+<img src="./img/预定义字符类.png" alt="" width="400"/>
 
 使用重复元字符：
-<img src="重复元字符.png" alt="" width="400"/>
+<img src="./img/重复元字符.png" alt="" width="400"/>
 
 定位符：
-<img src="定位符.png" alt="" width="400"/>
+<img src="./img/定位符.png" alt="" width="400"/>
