@@ -1,26 +1,30 @@
-# MySQL基础操作
+# MySQL 基础操作
 
 ## 安装
+
 TODO
 
 ### 安装教材配套数据集
+
 1. 下载[数据集](https://forta.com/wp-content/uploads/books/0672327120/mysql_scripts.zip).
-2. 启动Windows cmd，输入`mysqlsh`，进入MySQL Shell.
+2. 启动 Windows cmd，输入`mysqlsh`，进入 MySQL Shell.
 3. 连接到服务器，输入`create database crashcourse`，创建一个名为`crashcourse`的数据库。
-4. 执行create.sql脚本`source \path\to\create.sql`。注意需要指定绝对路径。
-5. 执行populate.sql脚本。
+4. 执行 create.sql 脚本`source \path\to\create.sql`。注意需要指定绝对路径。
+5. 执行 populate.sql 脚本。
 
 ## MySQL Shell
+
 [MySQL Shell 使用教程（博客）](https://zhaodafei.github.io/2019/06/12/mysql/mysql_shell/)
 
 [官方文档](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-getting-started.html)
 
-Shell并不是直接使用SQL，而是一个功能更多的软件。
+Shell 并不是直接使用 SQL，而是一个功能更多的软件。
 
-打开方式：在Windows cmd中输入`mysqlsh`。
+打开方式：在 Windows cmd 中输入`mysqlsh`。
 
 主要命令：
-1. 切换语言为SQL
+
+1. 切换语言为 SQL
    ```shell
    \sql
    ```
@@ -29,9 +33,9 @@ Shell并不是直接使用SQL，而是一个功能更多的软件。
    \connect root@localhost:3306
    ```
 3. 查看当前数据库
-    ```SQL
-    SHOW databases
-    ```
+   ```SQL
+   SHOW databases
+   ```
 4. 切换数据库
    ```SQL
    USE crashcourse
@@ -40,7 +44,7 @@ Shell并不是直接使用SQL，而是一个功能更多的软件。
    ```SQL
    SHOW TABLES
    ```
-6. 获得column的信息：
+6. 获得 column 的信息：
    ```sql
    show columns from table_name
    # 快捷方式
@@ -48,11 +52,14 @@ Shell并不是直接使用SQL，而是一个功能更多的软件。
    ```
 
 ## 教材数据集一览
+
 安装好数据集后，使用下面的命令查看所有的表名：
+
 ```sql
 use crashcourse
 show tables
 ```
+
 ```
 +-----------------------+
 | Tables_in_crashcourse |
@@ -65,13 +72,15 @@ show tables
 | vendors               |
 +-----------------------+
 ```
-给定一个table_name，可以查看整个表的信息：
+
+给定一个 table_name，可以查看整个表的信息：
+
 ```sql
 select * from table_name
 ```
 
-
 - `customers`
+
 ```
 +---------+----------------+---------------------+-----------+------------+----------+--------------+--------------+---------------------+
 | cust_id | cust_name      | cust_address        | cust_city | cust_state | cust_zip | cust_country | cust_contact | cust_email          |
@@ -85,6 +94,7 @@ select * from table_name
 ```
 
 - `orderitems`
+
 ```
 +-----------+------------+---------+----------+------------+
 | order_num | order_item | prod_id | quantity | item_price |
@@ -104,6 +114,7 @@ select * from table_name
 ```
 
 - `orders`
+
 ```
 +-----------+---------------------+---------+
 | order_num | order_date          | cust_id |
@@ -117,6 +128,7 @@ select * from table_name
 ```
 
 - `productnotes`
+
 ```
 +---------+---------+---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | note_id | prod_id | note_date           | note_text                                                                                                                                                 |
@@ -137,9 +149,11 @@ select * from table_name
 |     114 | SAFE    | 2005-09-07 00:00:00 | Call from individual trapped in safe plummeting to the ground, suggests an escape hatch be added. Comment forwarded to vendor.                            |
 +---------+---------+---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 ```
+
 (有亮点)
 
 - `products`
+
 ```
 +---------+---------+----------------+------------+----------------------------------------------------------------+
 | prod_id | vend_id | prod_name      | prod_price | prod_desc                                                      |
@@ -162,6 +176,7 @@ select * from table_name
 ```
 
 - `vendors`
+
 ```
 +---------+----------------+-----------------+-------------+------------+----------+--------------+
 | vend_id | vend_name      | vend_address    | vend_city   | vend_state | vend_zip | vend_country |
