@@ -1,17 +1,22 @@
-# SELECT语句
+# SELECT 语句
 
 ## 基本操作
+
 SELECT 语句检索一个或多个列
+
 ```SQL
 SELECT col_name FROM table_name;
 SELECT col_name1, col_name2, ... FROM table_name;
 SELECT * FROM table_name;
 SELECT DISTINCT col_name ...; # 返回值不同的行
 ```
+
 可以使用`LIMIT row_start, row_num`来限制输出数目，另一种形式为`LIMIT row_num OFFSET row_start`。
 
 ## 排序
+
 如果不明确规定排序顺序，则不应该假定检索出的数据的顺序有意义。
+
 ```sql
 SELECT col_name
 FROM table_name
@@ -27,19 +32,22 @@ ORDER BY some_col_name DESC; # 逆序排列，DESC关键字只应用到直接位
 <!-- <p><img src="./img/select_example.png" alt="description" width="100" height="48" /></p> -->
 
 ## 过滤
+
 ```sql
 SELECT col_name
 FROM table_name
 WHERE condition
 ```
-在同时使用ORDER BY和WHERE子句时，应该让ORDER BY位于WHERE之后。
-WHERE条件：
+
+在同时使用 ORDER BY 和 WHERE 子句时，应该让 ORDER BY 位于 WHERE 之后。
+WHERE 条件：
 
 <img src="./img/sql条件操作符.png" alt="" width="400">
 
-注意：NULL不能被等于或不等于条件选出。
+注意：NULL 不能被等于或不等于条件选出。
 
 ## 复杂的过滤条件
+
 可以使用`AND`，`OR`, `NOT`和`IN`。
 
 ```SQL
@@ -54,28 +62,34 @@ WHERE col_name in (item1, item2,...)
 ```
 
 ## 通配符
+
 ```SQL
 WHERE col_name LIKE search_pattern # search_pattern 是一个字符串
 ```
+
 搜索区分大小写。
-- `%`: 表示任何字符出现任意次数。不能匹配NULL。
+
+- `%`: 表示任何字符出现任意次数。不能匹配 NULL。
 - `_`: 只匹配单个字符。
-  
+
 ## 正则表达式
+
 ```SQL
 WHERE col_name REGEXP search_pattern # search_pattern 是一个字符串
 ```
-MySQL只支持少部分的正则表达式。
+
+MySQL 只支持少部分的正则表达式。
 **单个**字符匹配：
+
 - `.`: 任意一个字符。
 - `|`: 搜索两个串之一（或者为这个串，或者为另一个串）。
 - `[]`: 匹配几个字符之一。`[123]`是`[1|2|3]`的缩写。`[]`只能匹配单个字符，不能匹配字符串。可以使用`-`匹配范围,如`[123456789]`简写成`[1-9]`。
 
-正则表达式默认只需要匹配列值的**一部分**，而LIKE需要匹配整个列值。
+正则表达式默认只需要匹配列值的**一部分**，而 LIKE 需要匹配整个列值。
 
 <img src="./img/LIKE与REGEP的区别.png" alt="" width="200"/>
 
-正则表达式默认不区分大小写，如要区分，需要在search_pattern前加上BINARY。
+正则表达式默认不区分大小写，如要区分，需要在 search_pattern 前加上 BINARY。
 
 转义使用`\\`。
 

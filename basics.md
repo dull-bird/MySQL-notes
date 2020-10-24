@@ -2,11 +2,13 @@
 
 ## 安装
 
-TODO
+可以直接安装在自己的电脑上。
+
+[下载地址](https://dev.mysql.com/downloads/mysql/)
 
 ### 安装教材配套数据集
 
-1. 下载[数据集](https://forta.com/wp-content/uploads/books/0672327120/mysql_scripts.zip).
+1. 下载[数据集](https://forta.com/wp-content/uploads/books/0672327120/mysql_scripts.zip)。
 2. 启动 Windows cmd，输入`mysqlsh`，进入 MySQL Shell.
 3. 连接到服务器，输入`create database crashcourse`，创建一个名为`crashcourse`的数据库。
 4. 执行 create.sql 脚本`source \path\to\create.sql`。注意需要指定绝对路径。
